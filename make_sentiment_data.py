@@ -39,7 +39,7 @@ def sample_handling(sample, lexicon, classification):
             features = np.zeros(len(lexicon))
             for word in current_words:
                 if word.lower() in lexicon:
-                    index_value = lexicon.index(word.lower)
+                    index_value = lexicon.index(word.lower())
                     features[index_value] = 1
             features = list(features)
             featureset.append([features, classification])
@@ -66,7 +66,7 @@ def create_feature_set_and_labels(pos, neg, test_size = 0.1):
           
 if __name__ == '__main__':
     train_x, train_y, test_x, test_y = create_feature_set_and_labels("Sentiment/pos.txt", "Sentiment/neg.txt")
-    with open("sentiment_set.pickle") as f:
+    with open("sentiment_set.pickle", "wb") as f:
         pickle.dump([train_x, train_y, test_x, test_y], f)
     
     

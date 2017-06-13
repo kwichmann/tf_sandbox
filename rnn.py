@@ -11,14 +11,16 @@ batch_size = 128
 chunk_size = 28
 n_chunks = 28
 
+rnn_size = 128
+
 x = tf.placeholder("float", [None, 784])
 y = tf.placeholder("float")
 
-def model(data):
-    layer1 = {"weights": tf.Variable(tf.random_normal([784, nodes1])),
-              "biases": tf.Variable(tf.random_normal([nodes1]))}
+def recurrent_model(data):
+    layer = {"weights": tf.Variable(tf.random_normal([rnn_size, classes])),
+             "biases": tf.Variable(tf.random_normal([classes]))}
     
-    return tf.add(tf.matmul(l3, output["weights"]), output["biases"])
+    return tf.add(tf.matmul(???, layer["weights"]), layer["biases"])
 
 def train(x):
     prediction = model(x)
